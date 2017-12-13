@@ -1,7 +1,35 @@
 index:
   path: /
-  defaults: { _controller: 'App\Controller\DefaultController::index' }
+  controller: 'App\Controller\DefaultController::index'
 
 cart:
   path: /cart
-  defaults: { _controller: 'App\Controller\CartController::index' }
+  controller: 'App\Controller\CartController::index'
+
+session_login:
+  path: /login
+  controller: 'App\Controller\SessionController::login'
+  methods: [GET, POST]
+
+session_logout:
+  path: /logout
+  controller: 'App\Controller\SessionController::deleteAction'
+  methods: [GET, DELETE]
+
+user_show:
+  path: /user/{id}
+  controller: 'App\Controller\UserController::showAction'
+  methods: [GET, HEAD]
+  requirements:
+    id: '\d+'
+
+user_new:
+  path: /user
+  controller: 'App\Controller\UserController::newAction'
+  methods: [GET]
+
+user_create:
+  path: /user
+  controller: 'App\Controller\UserController::createAction'
+  methods: [POST]
+
