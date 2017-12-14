@@ -3,6 +3,14 @@
 {% block title %}Your one stop place for wizarding supplies{% endblock %}
 
 {% block body %}
+  <div class="jumbotron">
+    <h1 class="display-3">Items</h1>
+    <p class="lead">Select or manage items from this list.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="{{ path('item_new') }}" role="button">New Item</a>
+    </p>
+  </div>
+
   <div class="row">
     <div class="col-md-12">
       <div class="d-flex align-content-stretch flex-wrap">
@@ -12,4 +20,6 @@
       </div>
     </div>
   </div>
+
+  {{ include('pager.html.twig', { 'totalPages': totalPages, 'page': page, 'pageUrl': 'item' }) }}
 {% endblock %}

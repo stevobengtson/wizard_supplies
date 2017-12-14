@@ -1,0 +1,6 @@
+{% extends 'item/base-item.html.twig' %}
+
+{% block actions %}
+  <a href="{{ path('item_delete', {'id': item.id}) }}" class="btn btn-link">Delete</a>
+  <a href="{{ path('cart_add_item', {'item_id': item.id }) }}" class="btn btn-success">Add to Cart</a>
+{% endblock %}

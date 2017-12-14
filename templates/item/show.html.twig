@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ item.title }}{% endblock %}
+
+{% block body %}
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      {{ include('item/item.html.twig', {'item': item}) }}
+    </div>
+  </div>
+{% endblock %}

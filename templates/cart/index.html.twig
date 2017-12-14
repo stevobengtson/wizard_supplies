@@ -3,7 +3,32 @@
 {% block title %}Your current cart{% endblock %}
 
 {% block body %}
-  <h1>Cart</h1>
+  <div class="jumbotron">
+    <h1 class="display-3">Your Carts</h1>
+    <p class="lead">Items added to carts, remove them as needed.</p>
+  </div>
+
+  {% for cart in carts %}
+    <div class="row">
+      <div class="cold-md-4">
+        <h3>Cart {{ cart.id }}</h3>
+      </div>
+      <div class="col-md-9">
+        <a href="{{ path('cart_delete', {'id': cart.id}) }}" class="btn btn-link">delete</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="d-flex align-content-stretch flex-wrap">
+          {% for item in cart.items %}
+            {{ include('cart/item.html.twig', {'item': item}) }}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    {{ include('pager.html.twig', { 'totalPages': totalPages, 'page': page, 'pageUrl': 'cart' }) }}
+  {% endfor %}
 {% endblock %}
 
 

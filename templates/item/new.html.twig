@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create new item{% endblock %}
+
+{% block body %}
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      {{ form_start(form) }}
+      {{ form_widget(form) }}
+      {{ form_end(form) }}
+    </div>
+  </div>
+{% endblock %}
